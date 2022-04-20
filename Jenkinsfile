@@ -1,34 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('first stage') {
+    stage('maven version') {
       parallel {
-        stage('first stage') {
+        stage('maven version') {
           steps {
-            sh '''mvn -version
-git -version
-java -version'''
+            bat 'mvn complate test package'
+            bat 'mvn --version'
           }
         }
 
-        stage('second stage') {
+        stage('maven project') {
           steps {
-            fileExists 'pom.xml'
+            bat 'mvn complite test package'
           }
         }
 
-      }
-    }
-
-    stage('build with maven') {
-      steps {
-        sh 'mvn compile test package'
-      }
-    }
-
-    stage('post build steps') {
-      steps {
-        writeFile(file: 'status.txt', text: 'it worked')
       }
     }
 
