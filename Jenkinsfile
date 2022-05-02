@@ -14,7 +14,6 @@ pipeline {
             bat 'mvn -version'
           }
         }
-
       }
     }
 

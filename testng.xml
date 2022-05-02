@@ -6,12 +6,9 @@
 
     <test name="ChromeTest">
 
-
-
         <classes>
 
             <class name="DataProviderTest">
-
             </class>
 
         </classes>
