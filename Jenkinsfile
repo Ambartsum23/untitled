@@ -1,23 +1,25 @@
 pipeline {
   agent any
   stages {
-    stage('maven version') {
+    stage('Run test') {
       parallel {
-        stage('maven version') {
+        stage('Run test') {
           steps {
-            bat 'mvn complate test package'
-            bat 'mvn --version'
+            bat 'mvn clean test'
           }
         }
 
-        stage('maven project') {
+        stage('check version') {
           steps {
-            bat 'mvn complite test package'
+            bat 'mvn -version'
           }
         }
 
       }
     }
 
+  }
+  tools {
+    maven 'MyMaven'
   }
 }
